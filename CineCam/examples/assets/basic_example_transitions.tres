@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="TransitionDictionary" load_steps=15 format=3 uid="uid://dax8i5xhu3cv4"]
+
+[ext_resource type="Script" path="res://addons/CineCam/resources/TransitionDictionary.gd" id="1_56cfn"]
+[ext_resource type="Script" path="res://addons/CineCam/resources/Transition.gd" id="1_mgvkj"]
+
+[sub_resource type="Resource" id="Resource_7yix2"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera2"
+mode = 1
+duration = 1.0
+easing_function = 0
+properties = 7
+
+[sub_resource type="Resource" id="Resource_ls2gr"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera6"
+mode = 1
+duration = 1.0
+easing_function = 0
+properties = 7
+
+[sub_resource type="Resource" id="Resource_rk0cg"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera3"
+mode = 0
+duration = 1.0
+easing_function = 0
+properties = 7
+
+[sub_resource type="Resource" id="Resource_7sixs"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera1"
+mode = 1
+duration = 4.0
+easing_function = 0
+properties = 7
+
+[sub_resource type="Resource" id="Resource_81vd2"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera4"
+mode = 1
+duration = 3.0
+easing_function = 3
+properties = 7
+
+[sub_resource type="Resource" id="Resource_xq1xi"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera2"
+mode = 0
+duration = 1.0
+easing_function = 0
+properties = 7
+
+[sub_resource type="Resource" id="Resource_uh5xe"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera5"
+mode = 1
+duration = 1.0
+easing_function = 1
+properties = 7
+
+[sub_resource type="Resource" id="Resource_prdkb"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera3"
+mode = 1
+duration = 1.0
+easing_function = 0
+properties = 7
+
+[sub_resource type="Resource" id="Resource_icexu"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera6"
+mode = 1
+duration = 0.5
+easing_function = 2
+properties = 7
+
+[sub_resource type="Resource" id="Resource_ekbbg"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera4"
+mode = 1
+duration = 5.0
+easing_function = 3
+properties = 7
+
+[sub_resource type="Resource" id="Resource_2xvgg"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera1"
+mode = 1
+duration = 2.0
+easing_function = 0
+properties = 7
+
+[sub_resource type="Resource" id="Resource_hdvi3"]
+script = ExtResource("1_mgvkj")
+to = "VirtualCamera5"
+mode = 1
+duration = 5.0
+easing_function = 2
+properties = 7
+
+[resource]
+script = ExtResource("1_56cfn")
+_transitions = {
+"VirtualCamera1": [SubResource("Resource_7yix2"), SubResource("Resource_ls2gr")],
+"VirtualCamera2": [SubResource("Resource_rk0cg"), SubResource("Resource_7sixs")],
+"VirtualCamera3": [SubResource("Resource_81vd2"), SubResource("Resource_xq1xi")],
+"VirtualCamera4": [SubResource("Resource_uh5xe"), SubResource("Resource_prdkb")],
+"VirtualCamera5": [SubResource("Resource_icexu"), SubResource("Resource_ekbbg")],
+"VirtualCamera6": [SubResource("Resource_2xvgg"), SubResource("Resource_hdvi3")]
+}

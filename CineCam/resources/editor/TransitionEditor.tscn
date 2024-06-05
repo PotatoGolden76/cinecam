@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://el3yhcxlolyp"]
+
+[ext_resource type="Script" path="res://addons/CineCam/resources/editor/TransitionEditor.gd" id="1_v7yss"]
+[ext_resource type="Texture2D" uid="uid://cxb8wkgjnwkvb" path="res://addons/CineCam/assets/icons/Add.svg" id="2_whdpf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o1x1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08pr1"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7poll"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="TransitionEditor" type="Control"]
+material = SubResource("CanvasItemMaterial_o1x1v")
+clip_contents = true
+custom_minimum_size = Vector2(700, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7yss")
+
+[node name="MainWindow" type="HSplitContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 150
+
+[node name="CameraList" type="PanelContainer" parent="MainWindow"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainWindow/CameraList"]
+layout_mode = 2
+color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="List" type="VBoxContainer" parent="MainWindow/CameraList"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Toolbar" type="PanelContainer" parent="MainWindow/CameraList/List"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_08pr1")
+
+[node name="Wrapper" type="HBoxContainer" parent="MainWindow/CameraList/List/Toolbar"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MainWindow/CameraList/List/Toolbar/Wrapper"]
+layout_mode = 2
+text = "Virtual Cameras"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainWindow/CameraList/List"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Cameras" type="VBoxContainer" parent="MainWindow/CameraList/List/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TransitionList" type="PanelContainer" parent="MainWindow"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="List" type="VBoxContainer" parent="MainWindow/TransitionList"]
+layout_mode = 2
+
+[node name="Toolbar" type="PanelContainer" parent="MainWindow/TransitionList/List"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_08pr1")
+
+[node name="Wrapper" type="HBoxContainer" parent="MainWindow/TransitionList/List/Toolbar"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AddTransition" type="Button" parent="MainWindow/TransitionList/List/Toolbar/Wrapper"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("2_whdpf")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="MainWindow/TransitionList/List/Toolbar/Wrapper"]
+layout_mode = 2
+text = "Transitions for:"
+
+[node name="CurrentCam" type="Label" parent="MainWindow/TransitionList/List/Toolbar/Wrapper"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.372549, 0.698039, 1, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainWindow/TransitionList/List"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_7poll")
+horizontal_scroll_mode = 0
+
+[node name="Transitions" type="VBoxContainer" parent="MainWindow/TransitionList/List/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

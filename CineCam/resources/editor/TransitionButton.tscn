@@ -1,0 +1,237 @@
+[gd_scene load_steps=14 format=3 uid="uid://cu02jmn3jic51"]
+
+[ext_resource type="Script" path="res://addons/CineCam/resources/editor/TransitionButton.gd" id="1_77xyk"]
+[ext_resource type="Texture2D" uid="uid://cclnt4jl8h1k5" path="res://addons/CineCam/assets/icons/ArrowRight.svg" id="1_avoco"]
+[ext_resource type="Texture2D" uid="uid://dw3h70sois12m" path="res://addons/CineCam/assets/gizmos/VirtualCamera.svg" id="2_34aqm"]
+[ext_resource type="Texture2D" uid="uid://c7ljadb5qjnfp" path="res://addons/CineCam/assets/icons/ActionCut.svg" id="2_b3xhb"]
+[ext_resource type="Texture2D" uid="uid://dlui5qnnb5ewx" path="res://addons/CineCam/assets/icons/Curve.svg" id="3_u4ad1"]
+[ext_resource type="Texture2D" uid="uid://hvvriae3fmp4" path="res://addons/CineCam/assets/icons/CurveLinear.svg" id="5_cyo7f"]
+[ext_resource type="Texture2D" uid="uid://bnn7e1ssb1oxx" path="res://addons/CineCam/assets/icons/Remove.svg" id="5_r45mv"]
+[ext_resource type="Texture2D" uid="uid://gwcqhtwrp0hw" path="res://addons/CineCam/assets/icons/CurveIn.svg" id="6_8ts6t"]
+[ext_resource type="Texture2D" uid="uid://dlirkucqwsirq" path="res://addons/CineCam/assets/icons/CurveOut.svg" id="7_8o1jj"]
+[ext_resource type="Texture2D" uid="uid://di8jixujcu36w" path="res://addons/CineCam/assets/icons/CurveOutIn.svg" id="10_nyi70"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lfbw"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2bep"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbbn4"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.145098, 0.168627, 0.203922, 1)
+
+[node name="TransitionButton" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 95.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3lfbw")
+script = ExtResource("1_77xyk")
+
+[node name="Wrapper" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Toolbar" type="PanelContainer" parent="Wrapper"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Container" type="HBoxContainer" parent="Wrapper/Toolbar"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Toggle" type="Button" parent="Wrapper/Toolbar/Container"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+icon = ExtResource("1_avoco")
+alignment = 0
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="ModeSelect" type="OptionButton" parent="Wrapper/Toolbar/Container"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Cut"
+popup/item_0/icon = ExtResource("2_b3xhb")
+popup/item_0/id = 0
+popup/item_1/text = "Eased"
+popup/item_1/icon = ExtResource("3_u4ad1")
+popup/item_1/id = 1
+
+[node name="To" type="Label" parent="Wrapper/Toolbar/Container"]
+layout_mode = 2
+text = "To"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CameraSelect" type="OptionButton" parent="Wrapper/Toolbar/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+selected = 0
+popup/item_0/text = "Camera1"
+popup/item_0/icon = ExtResource("2_34aqm")
+popup/item_0/id = 0
+popup/item_1/text = "Camera2"
+popup/item_1/icon = ExtResource("2_34aqm")
+popup/item_1/id = 1
+
+[node name="Remove" type="Button" parent="Wrapper/Toolbar/Container"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+icon = ExtResource("5_r45mv")
+alignment = 0
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="Collapsible" type="PanelContainer" parent="Wrapper"]
+visible = false
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i2bep")
+
+[node name="Split" type="HSplitContainer" parent="Wrapper/Collapsible"]
+layout_mode = 2
+
+[node name="ModeWrapper" type="PanelContainer" parent="Wrapper/Collapsible/Split"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbbn4")
+
+[node name="Scroll" type="ScrollContainer" parent="Wrapper/Collapsible/Split/ModeWrapper"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Container" type="VBoxContainer" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll/Container"]
+layout_mode = 2
+text = "Mode Settings"
+horizontal_alignment = 1
+
+[node name="Easing" type="HBoxContainer" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll/Container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll/Container/Easing"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Easing Function"
+
+[node name="Select" type="OptionButton" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll/Container/Easing"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "Linear"
+popup/item_0/icon = ExtResource("5_cyo7f")
+popup/item_0/id = 0
+popup/item_1/text = "Ease In"
+popup/item_1/icon = ExtResource("6_8ts6t")
+popup/item_1/id = 1
+popup/item_2/text = "Ease Out"
+popup/item_2/icon = ExtResource("7_8o1jj")
+popup/item_2/id = 2
+popup/item_3/text = "Ease In-Out"
+popup/item_3/icon = ExtResource("10_nyi70")
+popup/item_3/id = 3
+
+[node name="Duration" type="HBoxContainer" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll/Container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll/Container/Duration"]
+layout_mode = 2
+text = "Duration"
+
+[node name="Input" type="SpinBox" parent="Wrapper/Collapsible/Split/ModeWrapper/Scroll/Container/Duration"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+step = 0.1
+allow_greater = true
+suffix = "s"
+
+[node name="PropertiesWrapper" type="PanelContainer" parent="Wrapper/Collapsible/Split"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbbn4")
+
+[node name="Scroll" type="ScrollContainer" parent="Wrapper/Collapsible/Split/PropertiesWrapper"]
+layout_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="Wrapper/Collapsible/Split/PropertiesWrapper/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Wrapper/Collapsible/Split/PropertiesWrapper/Scroll/Container"]
+layout_mode = 2
+text = "Properties"
+horizontal_alignment = 1
+
+[node name="Checkboxes" type="VBoxContainer" parent="Wrapper/Collapsible/Split/PropertiesWrapper/Scroll/Container"]
+layout_mode = 2
+
+[node name="PositionCheck" type="CheckBox" parent="Wrapper/Collapsible/Split/PropertiesWrapper/Scroll/Container/Checkboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Position"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="RotationCheck" type="CheckBox" parent="Wrapper/Collapsible/Split/PropertiesWrapper/Scroll/Container/Checkboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Rotation"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="FOVCheck" type="CheckBox" parent="Wrapper/Collapsible/Split/PropertiesWrapper/Scroll/Container/Checkboxes"]
+layout_mode = 2
+text = "FOV"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="Unused __remove__" type="HSplitContainer" parent="Wrapper/Collapsible"]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="Wrapper/Collapsible/Unused __remove__"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbbn4")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Wrapper/Collapsible/Unused __remove__/Panel"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Collapsible/Unused __remove__/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Wrapper/Collapsible/Unused __remove__/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Wrapper/Collapsible/Unused __remove__/Panel/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mode"
+
+[node name="Separator" type="HSeparator" parent="Wrapper"]
+layout_mode = 2

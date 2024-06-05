@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://b43p6hyo0llfw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ymo5"]
+bg_color = Color(0.878431, 0.6, 0.6, 0.392157)
+border_color = Color(0.892616, 0.635564, 0.634515, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k041c"]
+bg_color = Color(0.6, 0.972549, 0.6, 0.588235)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.6, 0.972549, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an0a7"]
+bg_color = Color(0.878431, 0.6, 0.6, 0.392157)
+border_color = Color(0.894118, 0.635294, 0.635294, 1)
+
+[node name="OverlayTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 200
+
+[node name="Panel" type="PanelContainer" parent="VSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ymo5")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="VSplitContainer2" type="HSplitContainer" parent="VSplitContainer/VSplitContainer"]
+layout_mode = 2
+split_offset = 200
+
+[node name="Panel" type="PanelContainer" parent="VSplitContainer/VSplitContainer/VSplitContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ymo5")
+
+[node name="VSplitContainer" type="HSplitContainer" parent="VSplitContainer/VSplitContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="VSplitContainer/VSplitContainer/VSplitContainer2/VSplitContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k041c")
+
+[node name="Panel2" type="PanelContainer" parent="VSplitContainer/VSplitContainer/VSplitContainer2/VSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_an0a7")
+
+[node name="Panel2" type="PanelContainer" parent="VSplitContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_an0a7")

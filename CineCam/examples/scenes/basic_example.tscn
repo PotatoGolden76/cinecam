@@ -1,0 +1,278 @@
+[gd_scene load_steps=18 format=3 uid="uid://b166khetcs7bh"]
+
+[ext_resource type="Script" path="res://addons/CineCam/examples/assets/basic_example_controller.gd" id="1_5k44w"]
+[ext_resource type="Script" path="res://addons/CineCam/objects/VirtualCamera.gd" id="1_hoqxo"]
+[ext_resource type="Script" path="res://addons/CineCam/objects/CameraDirector.gd" id="2_uv676"]
+[ext_resource type="Resource" uid="uid://dax8i5xhu3cv4" path="res://addons/CineCam/examples/assets/basic_example_transitions.tres" id="3_08a5l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73p5e"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tdk0"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyfxi"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ej3"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.662745)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1g0i"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocbhh"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_x10r3"]
+_data = {
+"points": PackedVector3Array(-0.655957, 0.695582, -1.90915, 0.655957, -0.695582, 1.90915, -2.56094, 1.93736, 3.30319, -1.09716, -2.04951, 0.645622, 1.09716, 2.04951, -0.645622, 2.59471, 3.53725, 6.44849, 2.74497, -1.65753, 2.10925, -2.74497, 1.65753, -2.10925, 3.92997, 6.28395, 1.3999, 0.179349, 1.92953, -0.322801, -0.179349, -1.92953, 0.322801, -2.30668, 4.44609, -2.30363, 0, 0, 0, 0, 0, 0, -2.56091, 1.93736, 3.30315),
+"tilts": PackedFloat32Array(0, 0, -1.66732, -1.24901, 0)
+}
+point_count = 5
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0b8tu"]
+
+[sub_resource type="Sky" id="Sky_niqau"]
+sky_material = SubResource("ProceduralSkyMaterial_0b8tu")
+
+[sub_resource type="Environment" id="Environment_sfsf8"]
+background_mode = 2
+sky = SubResource("Sky_niqau")
+
+[sub_resource type="Animation" id="Animation_3yror"]
+resource_name = "animate"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Objects/Object2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3), Vector3(0, 1, -12), Vector3(0, 0, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Objects/Object3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(4, 0, -3), Vector3(4, 1, -12), Vector3(4, 0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Objects/Object2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5, 4.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.14159, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Objects/Object3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5, 4.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1tpt2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Objects/Object2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Objects/Object3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4, 0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Objects/Object2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Objects/Object3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrtg7"]
+_data = {
+"RESET": SubResource("Animation_1tpt2"),
+"animate": SubResource("Animation_3yror")
+}
+
+[node name="BasicExample" type="Node3D"]
+script = ExtResource("1_5k44w")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
+
+[node name="Objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Object1" type="CSGBox3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+material_override = SubResource("StandardMaterial3D_73p5e")
+
+[node name="Object2" type="CSGBox3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+material_override = SubResource("StandardMaterial3D_8tdk0")
+
+[node name="Object3" type="CSGBox3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+material_override = SubResource("StandardMaterial3D_iyfxi")
+
+[node name="Object4" type="CSGBox3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+material_override = SubResource("StandardMaterial3D_72ej3")
+
+[node name="Object5" type="CSGBox3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+material_override = SubResource("StandardMaterial3D_t1g0i")
+
+[node name="Object6" type="CSGBox3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+material_override = SubResource("StandardMaterial3D_ocbhh")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_x10r3")
+
+[node name="Cameras" type="Node3D" parent="."]
+
+[node name="VirtualCamera1" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -4, 2.25882, 0.965926)
+current = true
+script = ExtResource("1_hoqxo")
+
+[node name="VirtualCamera2" type="Camera3D" parent="Cameras" node_paths=PackedStringArray("Follow Settings/Target", "Aim Settings/Target")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3.11704, -2.05338)
+script = ExtResource("1_hoqxo")
+follow_mode = 559
+aim_mode = 3
+"Follow Settings/Target" = NodePath("../../Objects/Object2")
+"Follow Settings/Lock Position" = false
+"Follow Settings/Speed" = 1.0
+"Follow Settings/Is Dampened" = false
+"Follow Settings/Rotate With Target" = false
+"Follow Settings/Offset" = Vector3(0, 2, 2)
+"Aim Settings/Target" = NodePath("../../Objects/Object2")
+"Aim Settings/Lock Aim" = false
+
+[node name="VirtualCamera3" type="Camera3D" parent="Cameras" node_paths=PackedStringArray("Follow Settings/Target", "Aim Settings/Target")]
+transform = Transform3D(0.876907, -0.339878, 0.339878, 0, 0.707107, 0.707107, -0.480661, -0.620067, 0.620067, 4.96132, 3.11704, -2.29957)
+script = ExtResource("1_hoqxo")
+follow_mode = 559
+aim_mode = 3
+reset_on_activate = false
+"Follow Settings/Target" = NodePath("../../Objects/Object3")
+"Follow Settings/Lock Position" = false
+"Follow Settings/Speed" = 0.3
+"Follow Settings/Is Dampened" = false
+"Follow Settings/Rotate With Target" = true
+"Follow Settings/Offset" = Vector3(0, 2, 2)
+"Aim Settings/Target" = NodePath("../../Objects/Object3")
+"Aim Settings/Lock Aim" = false
+
+[node name="VirtualCamera4" type="Camera3D" parent="Cameras" node_paths=PackedStringArray("Follow Settings/Target", "Aim Settings/Target")]
+transform = Transform3D(0.869859, -0.00711968, -0.493249, 0, 0.999896, -0.0144328, 0.4933, 0.0125545, 0.869768, -4, 1, 3)
+script = ExtResource("1_hoqxo")
+follow_mode = 1
+aim_mode = 3
+"Follow Settings/Target" = NodePath("../../Objects/Object4")
+"Aim Settings/Target" = NodePath("../../Objects/Object2")
+"Aim Settings/Lock Aim" = false
+
+[node name="VirtualCamera5" type="Camera3D" parent="Cameras" node_paths=PackedStringArray("Follow Settings/Tracking Path", "Aim Settings/Target")]
+transform = Transform3D(-0.917336, 0.204959, -0.341302, 0, 0.857296, 0.514824, 0.398114, 0.472267, -0.786428, -2.30375, 4.47501, -2.30831)
+script = ExtResource("1_hoqxo")
+follow_mode = 470
+aim_mode = 3
+"Follow Settings/Lock Position" = false
+"Follow Settings/Speed" = 0.3
+"Follow Settings/Path Offset" = 2.995
+"Follow Settings/Move Along" = true
+"Follow Settings/Loop" = true
+"Follow Settings/Tracking Path" = NodePath("../../Path3D")
+"Aim Settings/Target" = NodePath("../../Objects/Object5")
+"Aim Settings/Lock Aim" = false
+
+[node name="VirtualCamera6" type="Camera3D" parent="Cameras" node_paths=PackedStringArray("Aim Settings/Target")]
+transform = Transform3D(-0.917336, 0.204959, -0.341302, 0, 0.857296, 0.514824, 0.398114, 0.472267, -0.786428, 0, 4, 0)
+fov = 156.9
+script = ExtResource("1_hoqxo")
+follow_mode = 559
+aim_mode = 1
+"Follow Settings/Lock Position" = false
+"Follow Settings/Speed" = 0.3
+"Follow Settings/Is Dampened" = false
+"Follow Settings/Rotate With Target" = false
+"Follow Settings/Offset" = Vector3(0, 0, 0)
+"Aim Settings/Target" = NodePath("../VirtualCamera5")
+
+[node name="CameraDirector" type="Node3D" parent="."]
+script = ExtResource("2_uv676")
+initial_camera = "VirtualCamera1"
+transitions = ExtResource("3_08a5l")
+
+[node name="Camera3D" type="Camera3D" parent="CameraDirector"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -4, 2.25882, 0.965926)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sfsf8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.134176, 0.808458, -0.573056, 0, 0.578285, 0.815835, 0.990957, -0.109466, 0.0775922, 0, 3.41932, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nrtg7")
+}
