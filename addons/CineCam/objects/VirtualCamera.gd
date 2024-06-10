@@ -18,12 +18,14 @@ signal track_ended
 ## How the VirtualCamera should position itself in relation to a target
 @export var follow_mode: CineCamConstants.FollowModes:
 	set(value):
+		should_lock_position = false
 		follow_mode = value
 		notify_property_list_changed()
 
 ## How the VirtualCamera should rotate itself in relation to a target
 @export var aim_mode: CineCamConstants.AimModes:
 	set(value):
+		should_lock_aim = false
 		aim_mode = value
 		notify_property_list_changed()
 
@@ -71,11 +73,6 @@ var path_loop: bool = false
 var is_dampened: bool = false
 ## Wether offset should be rotated with the target in FollowModes.FOLLOW
 var rotate_with_target: bool = false
-
-var radius = 2.0
-
-var x_off  = 2*PI
-var z_off  = 0.0
 
 func _init():
 	# Ensure that all [VirtualCamera]s are in the proper group
@@ -141,18 +138,6 @@ func _physics_process(delta):
 									global_position = follow_target.global_position + target_offset
 					CineCamConstants.FollowModes.PATH_FOLLOW:
 						_handle_path_follow(delta)
-					CineCamConstants.FollowModes.ORBIT:
-						test_time += delta*5
-						
-						if test_time >= 2*PI:
-							test_time = 0.0
-
-						# print(follow_target.position)
-						# var rotated_origin = follow_target.global_position + Vector3(0, radius, 0).rotated(Vector3.RIGHT, x_off).rotated(Vector3.BACK, z_off).rotated(Vector3.UP, test_time)
-						var rotated_origin = Vector3(1, 0, 1).rotated(Vector3.RIGHT, x_off) * Vector3(1, 0, 1).rotated(Vector3.BACK, z_off) * Vector3(1, 1, 1).rotated(Vector3.UP, test_time) + follow_target.global_position
-						# print(rotated_origin)
-						# rotated_origin.x += radius
-						global_position = rotated_origin
 						
 			if not should_lock_aim:
 				match aim_mode:
